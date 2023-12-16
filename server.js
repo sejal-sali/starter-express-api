@@ -22,7 +22,7 @@ app.get('/api/data', async (req, res) => {
     const data = await collection.find({}).toArray();
 
     client.close();
-
+    res.set('Access-Control-Allow-Origin', '*');
     res.json(data);
   } catch (error) {
     console.error(error);
